@@ -14,7 +14,7 @@ import Wrapped from "./components/parents/Wrapped";
 function App() {
   return (
     <ChakraProvider>
-      <Router>
+      <Router basename="/spotify-visualizer-frontend">
         <Routes>
           <Route path="/" element={<SpotifyLogin />} />
           <Route path="/callback" element={<Callback />} />
