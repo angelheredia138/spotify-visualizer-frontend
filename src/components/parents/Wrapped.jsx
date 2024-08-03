@@ -29,11 +29,14 @@ const Wrapped = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("spotify_access_token");
-      const response = await fetch("http://50.18.100.135:8000/api/wrapped/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/wrapped/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const wrappedData = await response.json();
       setData(wrappedData);
       setLoading(false);
