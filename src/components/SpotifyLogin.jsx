@@ -5,7 +5,8 @@ import "./css/SpotifyLogin.css";
 const SpotifyLogin = () => {
   const handleLogin = () => {
     const clientId = "ecc927ddea8743b3af6b32d78a149e68";
-    const redirectUri = "http://localhost:5173/callback";
+    const redirectUri =
+      "https://angel-heredia.com/spotify-visualizer-frontend/callback";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = "user-read-recently-played user-top-read";
 
