@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.animated-background {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #4299e1, #48bb78, #4299e1);
+  background-size: 600% 600%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.chart-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+svg text {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  paint-order: stroke;
+}
+.chart-container-transparent {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+  padding: 10px;
+  overflow: auto;
+}
+
+.fullscreen .heading {
+  margin-bottom: 20px;
+}
+
+.fullscreen svg {
+  width: 100% !important;
+  height: 80vh !important;
+}
+.button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+svg {
+  font: 20px sans-serif;
+  background-color: transparent !important; /* Ensure all SVGs are transparent */
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: orange;
+}
+
+.axis text {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+
+.tooltip {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.time-range-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.time-range-controls select {
+  font-weight: bold;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.dropdown {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #d3-genres-chart,
+  #d3-leaderboard {
+    width: 100% !important;
+  }
+
+  .time-range-controls {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .chart-container {
+    flex: 1;
+    margin: 10px;
+  }
+}
+.chart-container-responsive {
+  overflow: auto;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
