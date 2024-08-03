@@ -38,14 +38,14 @@ const TopGenresandArtists = () => {
 
       // Fetch genres data
       const genresResponse = await fetch(
-        `http://127.0.0.1:8000/api/top-genres/?time_range=${timeRange}`,
+        `http://50.18.100.135:8000/api/top-genres/?time_range=${timeRange}`,
         { headers }
       );
       const genresData = await genresResponse.json();
 
       // Fetch artists data
       const artistsResponse = await fetch(
-        `http://127.0.0.1:8000/api/top-artists/?time_range=${timeRange}`,
+        `http://50.18.100.135:8000/api/top-artists/?time_range=${timeRange}`,
         { headers }
       );
       const artistsData = await artistsResponse.json();

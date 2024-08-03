@@ -30,7 +30,7 @@ const ListeningHistory = () => {
       const headers = { Authorization: `Bearer ${token}` };
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/recently-played/`,
+        `http://50.18.100.135:8000/api/recently-played/`,
         { headers }
       );
       const text = await response.text();
