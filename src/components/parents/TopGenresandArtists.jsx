@@ -38,14 +38,14 @@ const TopGenresandArtists = () => {
 
       // Fetch genres data
       const genresResponse = await fetch(
-        `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/top-genres/?time_range=${timeRange}`,
+        `https://herediabackend.com/api/top-genres/?time_range=${timeRange}`,
         { headers }
       );
       const genresData = await genresResponse.json();
 
       // Fetch artists data
       const artistsResponse = await fetch(
-        `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/top-artists/?time_range=${timeRange}`,
+        `https://herediabackend.com/api/top-artists/?time_range=${timeRange}`,
         { headers }
       );
       const artistsData = await artistsResponse.json();

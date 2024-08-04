@@ -40,7 +40,7 @@ const AudioFeatures = () => {
       while (fetchedTracks.length < 100) {
         // Adjust the loop to fetch 100 tracks
         const tracksResponse = await fetch(
-          `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/top-tracks/?time_range=${timeRange}&limit=${limit}&offset=${offset}`,
+          `https://herediabackend.com/api/top-tracks/?time_range=${timeRange}&limit=${limit}&offset=${offset}`,
           { headers }
         );
         const tracksData = await tracksResponse.json();
@@ -54,7 +54,7 @@ const AudioFeatures = () => {
       const trackIds = fetchedTracks.map((track) => track.id).join(",");
 
       const audioFeaturesResponse = await fetch(
-        `https:/api.spotify.com/v1/audio-features?ids=${trackIds}`,
+        `https://api.spotify.com/v1/audio-features?ids=${trackIds}`,
         { headers }
       );
       const audioFeaturesData = await audioFeaturesResponse.json();

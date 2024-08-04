@@ -30,12 +30,9 @@ const Genres = () => {
       const token = localStorage.getItem("spotify_access_token");
       const headers = { Authorization: `Bearer ${token}` };
 
-      const response = await fetch(
-        `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/genres/`,
-        {
-          headers,
-        }
-      );
+      const response = await fetch(`https://herediabackend.com/api/genres/`, {
+        headers,
+      });
       const data = await response.json();
       setGenres(data.genres || []);
       setLoading(false);
