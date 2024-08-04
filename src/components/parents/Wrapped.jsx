@@ -71,6 +71,10 @@ const Wrapped = () => {
     scrollToNext(id);
   };
 
+  const headingFontSize = useBreakpointValue({ base: "2xl", md: "4xl" });
+  const buttonFontSize = useBreakpointValue({ base: "md", md: "lg" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+
   if (loading) {
     return (
       <Flex
@@ -111,6 +115,7 @@ const Wrapped = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
+        fontSize={headingFontSize}
       >
         Classic Spotify Wrapped
       </Heading>
@@ -122,6 +127,7 @@ const Wrapped = () => {
           as={motion.button}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          fontSize={buttonFontSize}
         >
           Back to Home
         </Button>
@@ -157,6 +163,7 @@ const Wrapped = () => {
             onClick={() => handleButtonClick("section2")}
             mt={4}
             disabled={scrollLocked}
+            fontSize={buttonFontSize}
           >
             Next
           </Button>
@@ -186,6 +193,7 @@ const Wrapped = () => {
             onClick={() => handleButtonClick("section3")}
             mt={4}
             disabled={scrollLocked}
+            fontSize={buttonFontSize}
           >
             Next
           </Button>
@@ -223,6 +231,7 @@ const Wrapped = () => {
             onClick={() => handleButtonClick("section4")}
             mt={4}
             disabled={scrollLocked}
+            fontSize={buttonFontSize}
           >
             Next
           </Button>
@@ -247,17 +256,29 @@ const Wrapped = () => {
           width={isMobile ? "90%" : "50%"}
           margin="auto"
         >
-          <Heading as="h3" size="md" mb={4} textAlign="center">
+          <Heading
+            as="h3"
+            size="md"
+            mb={4}
+            textAlign="center"
+            fontSize={headingFontSize}
+          >
             Thank You for Viewing!
           </Heading>
-          <Text textAlign="center">
+          <Text textAlign="center" fontSize={textFontSize}>
             We hope you enjoyed your Wrapped experience.
           </Text>
           <Box mt={6} textAlign="center">
-            <Heading as="h3" size="lg" mb={4} textAlign="center">
+            <Heading
+              as="h3"
+              size="lg"
+              mb={4}
+              textAlign="center"
+              fontSize={headingFontSize}
+            >
               A Special Thank You!
             </Heading>
-            <Text fontSize="lg" textAlign="center">
+            <Text fontSize={textFontSize} textAlign="center">
               Your journey through this Wrapped experience means the world to
               me. This project has been a labor of love and seeing you reach
               this point is incredibly rewarding. I hope these insights bring a
@@ -269,6 +290,7 @@ const Wrapped = () => {
             mt={8}
             colorScheme="blue"
             size="lg"
+            fontSize={buttonFontSize}
           >
             Back to Home
           </Button>

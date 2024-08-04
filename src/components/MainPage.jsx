@@ -63,7 +63,7 @@ const MainPage = () => {
       path: "/playlists",
     },
     {
-      title: "Classic Spotify Wrapped",
+      title: "Wrapped",
       description:
         "Relive your music journey with a nostalgic view of your top tracks, artists, and genres, accompanied by engaging visualizations.",
       path: "/wrapped",
