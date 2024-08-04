@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Text, Heading, VStack, Image, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Heading,
+  VStack,
+  Image,
+  Button,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ControlledConfetti from "./ControlledConfetti";
 
@@ -8,6 +16,11 @@ const TopSummary = ({ topArtist, topSong, topGenre }) => {
   const [countdown, setCountdown] = useState(4);
   const [confettiVisible, setConfettiVisible] = useState(false);
   const confettiRef = useRef(null);
+
+  const headingFontSize = useBreakpointValue({ base: "xl", md: "2xl" });
+  const subHeadingFontSize = useBreakpointValue({ base: "md", md: "lg" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+  const buttonFontSize = useBreakpointValue({ base: "sm", md: "lg" });
 
   useEffect(() => {
     if (revealed) {
@@ -33,10 +46,15 @@ const TopSummary = ({ topArtist, topSong, topGenre }) => {
       <ControlledConfetti run={confettiVisible} />
       {!revealed ? (
         <>
-          <Heading as="h2" size="2xl">
+          <Heading as="h2" size="2xl" fontSize={headingFontSize}>
             Your Top Highlights
           </Heading>
-          <Button onClick={startReveal} colorScheme="blue" size="lg">
+          <Button
+            onClick={startReveal}
+            colorScheme="blue"
+            size="lg"
+            fontSize={buttonFontSize}
+          >
             Reveal
           </Button>
           {countdown < 4 && countdown > 0 && (
@@ -47,6 +65,7 @@ const TopSummary = ({ topArtist, topSong, topGenre }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
+              fontSize={subHeadingFontSize}
             >
               {countdown}
             </Heading>
@@ -62,7 +81,7 @@ const TopSummary = ({ topArtist, topSong, topGenre }) => {
           transition={{ duration: 1 }}
         >
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Top Artist
             </Heading>
             <Image
@@ -73,22 +92,22 @@ const TopSummary = ({ topArtist, topSong, topGenre }) => {
               mx="auto"
               my={4}
             />
-            <Text fontSize="2xl">{topArtist.name}</Text>
+            <Text fontSize={textFontSize}>{topArtist.name}</Text>
           </Box>
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Top Song
             </Heading>
-            <Text fontSize="2xl" fontWeight="bold">
+            <Text fontSize={textFontSize} fontWeight="bold">
               {topSong.title}
             </Text>
-            <Text fontSize="xl">by {topSong.artist}</Text>
+            <Text fontSize={textFontSize}>by {topSong.artist}</Text>
           </Box>
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Top Genre
             </Heading>
-            <Text fontSize="2xl">{topGenre}</Text>
+            <Text fontSize={textFontSize}>{topGenre}</Text>
           </Box>
         </VStack>
       )}

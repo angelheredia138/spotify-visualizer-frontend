@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Text, Heading, VStack, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Heading,
+  VStack,
+  Button,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ControlledConfetti from "./ControlledConfetti";
 
@@ -12,6 +19,11 @@ const Summary = ({ scrollToNext }) => {
   const [countdown, setCountdown] = useState(4);
   const [confettiVisible, setConfettiVisible] = useState(false);
   const confettiRef = useRef(null);
+
+  const headingFontSize = useBreakpointValue({ base: "xl", md: "2xl" });
+  const subHeadingFontSize = useBreakpointValue({ base: "lg", md: "xl" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+  const buttonFontSize = useBreakpointValue({ base: "sm", md: "lg" });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,10 +122,15 @@ const Summary = ({ scrollToNext }) => {
       <ControlledConfetti run={confettiVisible} />
       {!revealed ? (
         <>
-          <Heading as="h2" size="2xl">
+          <Heading as="h2" size="2xl" fontSize={headingFontSize}>
             Your Listening Summary for the Last Month
           </Heading>
-          <Button onClick={startReveal} colorScheme="blue" size="lg">
+          <Button
+            onClick={startReveal}
+            colorScheme="blue"
+            size="lg"
+            fontSize={buttonFontSize}
+          >
             Reveal
           </Button>
           {countdown < 4 && countdown > 0 && (
@@ -124,6 +141,7 @@ const Summary = ({ scrollToNext }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
+              fontSize={subHeadingFontSize}
             >
               {countdown}
             </Heading>
@@ -139,40 +157,40 @@ const Summary = ({ scrollToNext }) => {
           transition={{ duration: 1 }}
         >
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Total Listening Time
             </Heading>
-            <Text fontSize="l">
+            <Text fontSize={textFontSize}>
               {listeningTime !== null
                 ? getListeningTimeText(listeningTime)
                 : "Loading..."}
             </Text>
           </Box>
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Unique Genres
             </Heading>
-            <Text fontSize="l">
+            <Text fontSize={textFontSize}>
               {uniqueGenres !== null
                 ? getUniqueGenresText(uniqueGenres)
                 : "Loading..."}
             </Text>
           </Box>
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Unique Artists
             </Heading>
-            <Text fontSize="l">
+            <Text fontSize={textFontSize}>
               {uniqueArtists !== null
                 ? getUniqueArtistsText(uniqueArtists)
                 : "Loading..."}
             </Text>
           </Box>
           <Box textAlign="center">
-            <Heading as="h3" size="xl">
+            <Heading as="h3" size="xl" fontSize={subHeadingFontSize}>
               Trends and Insights
             </Heading>
-            <Text fontSize="l">{trends || "Loading..."}</Text>
+            <Text fontSize={textFontSize}>{trends || "Loading..."}</Text>
           </Box>
         </VStack>
       )}

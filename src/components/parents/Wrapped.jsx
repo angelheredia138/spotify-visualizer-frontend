@@ -159,16 +159,25 @@ const Wrapped = () => {
             lockScroll={lockScroll}
             unlockScroll={unlockScroll}
           />
-          <Button
-            onClick={() => handleButtonClick("section2")}
-            mt={4}
-            disabled={scrollLocked}
-            fontSize={buttonFontSize}
-          >
-            Next
-          </Button>
         </Box>
       </Element>
+      <Box
+        position="fixed"
+        bottom="10%"
+        left="50%"
+        transform="translateX(-50%)"
+        zIndex="1000"
+      >
+        <Button
+          onClick={() => handleButtonClick("section2")}
+          colorScheme="blue"
+          size="lg"
+          disabled={scrollLocked}
+          fontSize={buttonFontSize}
+        >
+          Next
+        </Button>
+      </Box>
       <Element
         name="section2"
         className="element"
@@ -189,16 +198,25 @@ const Wrapped = () => {
           margin="auto"
         >
           <TopArtists artists={data.top_artists || []} />
-          <Button
-            onClick={() => handleButtonClick("section3")}
-            mt={4}
-            disabled={scrollLocked}
-            fontSize={buttonFontSize}
-          >
-            Next
-          </Button>
         </Box>
       </Element>
+      <Box
+        position="fixed"
+        bottom="10%"
+        left="50%"
+        transform="translateX(-50%)"
+        zIndex="1000"
+      >
+        <Button
+          onClick={() => handleButtonClick("section3")}
+          colorScheme="blue"
+          size="lg"
+          disabled={scrollLocked}
+          fontSize={buttonFontSize}
+        >
+          Next
+        </Button>
+      </Box>
       <Element
         name="section3"
         className="element"
@@ -227,16 +245,25 @@ const Wrapped = () => {
             lockScroll={lockScroll}
             unlockScroll={unlockScroll}
           />
-          <Button
-            onClick={() => handleButtonClick("section4")}
-            mt={4}
-            disabled={scrollLocked}
-            fontSize={buttonFontSize}
-          >
-            Next
-          </Button>
         </Box>
       </Element>
+      <Box
+        position="fixed"
+        bottom="10%"
+        left="50%"
+        transform="translateX(-50%)"
+        zIndex="1000"
+      >
+        <Button
+          onClick={() => handleButtonClick("section4")}
+          colorScheme="blue"
+          size="lg"
+          disabled={scrollLocked}
+          fontSize={buttonFontSize}
+        >
+          Next
+        </Button>
+      </Box>
       <Element
         name="section4"
         className="element"

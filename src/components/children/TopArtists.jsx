@@ -7,6 +7,7 @@ import {
   HStack,
   Image,
   Button,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ControlledConfetti from "./ControlledConfetti";
@@ -16,6 +17,11 @@ const TopArtists = ({ artists = [] }) => {
   const [countdown, setCountdown] = useState(4);
   const [confettiVisible, setConfettiVisible] = useState(false);
   const confettiRef = useRef(null);
+
+  const headingFontSize = useBreakpointValue({ base: "xl", md: "2xl" });
+  const subHeadingFontSize = useBreakpointValue({ base: "md", md: "lg" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+  const buttonFontSize = useBreakpointValue({ base: "sm", md: "lg" });
 
   useEffect(() => {
     if (revealed) {
@@ -47,10 +53,15 @@ const TopArtists = ({ artists = [] }) => {
       <ControlledConfetti run={confettiVisible} />
       {!revealed ? (
         <>
-          <Heading as="h2" size="2xl">
+          <Heading as="h2" size="2xl" fontSize={headingFontSize}>
             Your Top 5 Artists
           </Heading>
-          <Button onClick={startReveal} colorScheme="blue" size="lg">
+          <Button
+            onClick={startReveal}
+            colorScheme="blue"
+            size="lg"
+            fontSize={buttonFontSize}
+          >
             Reveal
           </Button>
           {countdown < 4 && countdown > 0 && (
@@ -61,6 +72,7 @@ const TopArtists = ({ artists = [] }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
+              fontSize={subHeadingFontSize}
             >
               {countdown}
             </Heading>
@@ -86,10 +98,12 @@ const TopArtists = ({ artists = [] }) => {
                   ref={index === 0 ? confettiRef : null} // Use the first artist's image as the confetti trigger
                 />
                 <Box>
-                  <Heading as="h3" size="md">
+                  <Heading as="h3" size="md" fontSize={subHeadingFontSize}>
                     {artist.name}
                   </Heading>
-                  <Text fontSize="md">Popularity: {artist.playcount}</Text>
+                  <Text fontSize={textFontSize}>
+                    Popularity: {artist.playcount}
+                  </Text>
                 </Box>
               </HStack>
             ))
