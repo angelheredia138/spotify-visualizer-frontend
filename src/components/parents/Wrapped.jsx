@@ -21,9 +21,12 @@ import "../css/Components.css";
 const Wrapped = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [currentSection, setCurrentSection] = useState(0);
   const navigate = useNavigate();
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [scrollLocked, setScrollLocked] = useState(false);
+
+  const sections = ["section1", "section2", "section3", "section4"];
 
   const fetchData = async () => {
     try {
@@ -47,13 +50,17 @@ const Wrapped = () => {
     fetchData();
   }, []);
 
-  const scrollToNext = (id) => {
+  const scrollToNext = () => {
     unlockScroll();
-    scroller.scrollTo(id, {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
+    if (currentSection < sections.length - 1) {
+      const nextSection = sections[currentSection + 1];
+      scroller.scrollTo(nextSection, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
+      setCurrentSection(currentSection + 1);
+    }
   };
 
   const lockScroll = () => {
@@ -64,11 +71,6 @@ const Wrapped = () => {
   const unlockScroll = () => {
     document.body.style.overflow = "auto";
     setScrollLocked(false);
-  };
-
-  const handleButtonClick = (id) => {
-    unlockScroll();
-    scrollToNext(id);
   };
 
   const headingFontSize = useBreakpointValue({ base: "2xl", md: "4xl" });
@@ -161,23 +163,6 @@ const Wrapped = () => {
           />
         </Box>
       </Element>
-      <Box
-        position="fixed"
-        bottom="10%"
-        left="50%"
-        transform="translateX(-50%)"
-        zIndex="1000"
-      >
-        <Button
-          onClick={() => handleButtonClick("section2")}
-          colorScheme="blue"
-          size="lg"
-          disabled={scrollLocked}
-          fontSize={buttonFontSize}
-        >
-          Next
-        </Button>
-      </Box>
       <Element
         name="section2"
         className="element"
@@ -200,23 +185,6 @@ const Wrapped = () => {
           <TopArtists artists={data.top_artists || []} />
         </Box>
       </Element>
-      <Box
-        position="fixed"
-        bottom="10%"
-        left="50%"
-        transform="translateX(-50%)"
-        zIndex="1000"
-      >
-        <Button
-          onClick={() => handleButtonClick("section3")}
-          colorScheme="blue"
-          size="lg"
-          disabled={scrollLocked}
-          fontSize={buttonFontSize}
-        >
-          Next
-        </Button>
-      </Box>
       <Element
         name="section3"
         className="element"
@@ -247,23 +215,6 @@ const Wrapped = () => {
           />
         </Box>
       </Element>
-      <Box
-        position="fixed"
-        bottom="10%"
-        left="50%"
-        transform="translateX(-50%)"
-        zIndex="1000"
-      >
-        <Button
-          onClick={() => handleButtonClick("section4")}
-          colorScheme="blue"
-          size="lg"
-          disabled={scrollLocked}
-          fontSize={buttonFontSize}
-        >
-          Next
-        </Button>
-      </Box>
       <Element
         name="section4"
         className="element"
@@ -323,6 +274,25 @@ const Wrapped = () => {
           </Button>
         </Box>
       </Element>
+      {currentSection < sections.length - 1 && (
+        <Box
+          position="fixed"
+          bottom="10%"
+          left="50%"
+          transform="translateX(-50%)"
+          zIndex="1000"
+        >
+          <Button
+            onClick={scrollToNext}
+            colorScheme="blue"
+            size="lg"
+            disabled={scrollLocked}
+            fontSize={buttonFontSize}
+          >
+            Next
+          </Button>
+        </Box>
+      )}
     </div>
   );
 };
