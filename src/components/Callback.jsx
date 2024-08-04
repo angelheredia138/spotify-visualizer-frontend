@@ -15,7 +15,7 @@ const Callback = () => {
       processing.current = true; // Set the ref to true to indicate processing has started
 
       fetch(
-        `http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/spotify-callback/?code=${code}`
+        `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/spotify-callback/?code=${code}`
       )
         .then((response) => response.json())
         .then((data) => {

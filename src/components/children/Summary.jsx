@@ -21,19 +21,19 @@ const Summary = ({ scrollToNext }) => {
       };
 
       const fetchListeningTime = fetch(
-        "http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/total_listening_time",
+        "https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000//api/total_listening_time",
         { headers }
       );
       const fetchUniqueGenres = fetch(
-        "http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/unique_genres",
+        "https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000//api/unique_genres",
         { headers }
       );
       const fetchUniqueArtists = fetch(
-        "http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/unique_artists",
+        "https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000//api/unique_artists",
         { headers }
       );
       const fetchTrends = fetch(
-        "http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/trends_insights",
+        "https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000//api/trends_insights",
         {
           headers,
         }

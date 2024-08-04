@@ -31,7 +31,7 @@ const Genres = () => {
       const headers = { Authorization: `Bearer ${token}` };
 
       const response = await fetch(
-        `http://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000/api/genres/`,
+        `https://ec2-50-18-100-135.us-west-1.compute.amazonaws.com:8000//api/genres/`,
         {
           headers,
         }
