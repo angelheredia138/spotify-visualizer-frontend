@@ -89,12 +89,12 @@ const Summary = ({ scrollToNext }) => {
 
   const getListeningTimeText = (hours) => {
     if (hours > 1000)
-      return `Wow! You've spent ${hours} hours listening to music in the last month. You're a true audiophile!`;
+      return `Wow! You've spent an average of ${hours} hours listening to music every day in the last month. You're a true audiophile!`;
     if (hours > 500)
-      return `Impressive! ${hours} hours of music in the last month - you're quite the dedicated listener.`;
+      return `Impressive! An average ${hours} hours of music every day in the last month - you're quite the dedicated listener.`;
     if (hours > 100)
-      return `${hours} hours of tunes in the last month! You certainly enjoy your music.`;
-    return `You've spent ${hours} hours enjoying music in the last month. Every moment counts!`;
+      return `An average of ${hours} hours of tunes every day in the last month! You certainly enjoy your music.`;
+    return `You've spent am average of ${hours} hours enjoying music every day in the last month. Every moment counts!`;
   };
 
   const getUniqueGenresText = (genres) => {

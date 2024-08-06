@@ -6,7 +6,7 @@ const ControlledConfetti = ({ run }) => {
     angle: 90,
     spread: 45,
     startVelocity: 45,
-    elementCount: 15,
+    elementCount: 25,
     dragFriction: 0.1,
     duration: 3000,
     stagger: 0,

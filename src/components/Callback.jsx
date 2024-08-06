@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex, Spinner, Text, VStack } from "@chakra-ui/react";
 import "./css/Callback.css";
@@ -8,6 +8,16 @@ const Callback = () => {
   const processing = React.useRef(false); // Use a ref to prevent re-processing
 
   useEffect(() => {
+    const checkError = setInterval(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get("error");
+
+      if (error === "access_denied") {
+        clearInterval(checkError);
+        navigate("/error");
+      }
+    }, 1000);
+
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
 
@@ -20,17 +30,22 @@ const Callback = () => {
           if (data.access_token) {
             localStorage.setItem("spotify_access_token", data.access_token);
             localStorage.setItem("spotify_refresh_token", data.refresh_token);
+            clearInterval(checkError);
             navigate("/main");
           } else {
             console.error("Token exchange failed:", data);
+            clearInterval(checkError);
             navigate("/");
           }
         })
         .catch((error) => {
           console.error("Error during token exchange:", error);
+          clearInterval(checkError);
           navigate("/");
         });
     }
+
+    return () => clearInterval(checkError); // Cleanup the interval on component unmount
   }, [navigate]);
 
   return (

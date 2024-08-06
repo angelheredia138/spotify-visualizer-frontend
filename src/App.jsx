@@ -10,6 +10,7 @@ import ListeningHistory from "./components/parents/ListeningHistory";
 import Genres from "./components/parents/Genres";
 import Playlists from "./components/parents/Playlists";
 import Wrapped from "./components/parents/Wrapped";
+import Error from "./components/Error";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/genres" element={<Genres />} />
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/wrapped" element={<Wrapped />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </Router>
     </ChakraProvider>
