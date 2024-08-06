@@ -1,6 +1,7 @@
 # Spotify Visualizer
 
-Welcome to the Spotify Visualizer! This website offers an interactive and visually engaging way to explore your Spotify listening habits. Dive into detailed analyses and visualizations of your top genres, artists, tracks, and more.
+This is the up to date front end code for my spotify data visualizer, if you would like to try this visualizer out for yourself, you unfortunately cannot as the spotify api is in developer mode, so I have to manually add users to test out the product, if you are interested, ask me and maybe I can show you how it works!
+
 
 ## Features
 
