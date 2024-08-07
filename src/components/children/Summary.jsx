@@ -94,7 +94,7 @@ const Summary = ({ scrollToNext }) => {
       return `Impressive! An average ${hours} hours of music every day in the last month - you're quite the dedicated listener.`;
     if (hours > 100)
       return `An average of ${hours} hours of tunes every day in the last month! You certainly enjoy your music.`;
-    return `You've spent am average of ${hours} hours enjoying music every day in the last month. Every moment counts!`;
+    return `You've spent an average of ${hours} hours enjoying music every day in the last month. Every moment counts!`;
   };
 
   const getUniqueGenresText = (genres) => {
